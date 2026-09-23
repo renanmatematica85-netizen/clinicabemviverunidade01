@@ -202,7 +202,8 @@
   .hero-logo-big { width: 100%; max-width: 420px; height: auto; display: block; }
   .photo-placeholder--main { background: linear-gradient(150deg, var(--sage-pale), var(--sage-light)); }
   .photo-placeholder--accent { background: linear-gradient(150deg, var(--gold-light), var(--gold)); }
-  .about-img-main img.photo-block, .about-img-accent img.photo-block { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .about-img-main img.photo-block { width: 100%; height: 100%; object-fit: contain; background: var(--sage-pale); display: block; }
+  .about-img-accent img.photo-block { width: 100%; height: 100%; object-fit: cover; display: block; }
   .hc-slide-placeholder { background: linear-gradient(150deg, var(--sage), var(--sage-deep)); }
   .hc-slide-placeholder:nth-child(even) { background: linear-gradient(150deg, var(--sage-deep), var(--sage)); }
   .hc-slide-cap {
@@ -976,6 +977,7 @@ const CONFIG = {
   whatsapp: "5553984515749",
   telefoneExibicao: "(53) 98451-5749",
   endereco: "Rua Barão de Azevedo Machado, 279 — Centro, Pelotas/RS, CEP 96020-150",
+  mapaCoordenadas: "-31.7513659,-52.3344937",
   email: "moroaline2012@gmail.com",
   instagram: "https://www.instagram.com/bemvivergeriatria/",
   instagramHandle: "@bemvivergeriatria",
@@ -1001,7 +1003,7 @@ const CONFIG = {
   const mapLink = document.getElementById('mapLink');
   if (mapLink) mapLink.href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(CONFIG.endereco);
   const mapEmbed = document.getElementById('mapEmbed');
-  if (mapEmbed) mapEmbed.src = 'https://www.google.com/maps?q=' + encodeURIComponent(CONFIG.endereco) + '&output=embed';
+  if (mapEmbed) mapEmbed.src = 'https://maps.google.com/maps?q=' + encodeURIComponent(CONFIG.mapaCoordenadas || CONFIG.endereco) + '&z=16&output=embed';
 })();
 
 // ── Barra de ferramentas (header sticky + menu mobile) ──
