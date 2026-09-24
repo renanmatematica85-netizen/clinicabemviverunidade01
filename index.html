@@ -1000,14 +1000,12 @@ const CONFIG = {
     if(CONFIG.instagram){ el.href = CONFIG.instagram; } else { el.remove(); }
   });
 
-    const mapLink = document.getElementById('mapLink');
+  const mapLink = document.getElementById('mapLink');
   if (mapLink) mapLink.href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(CONFIG.endereco);
   const mapEmbed = document.getElementById('mapEmbed');
   if (mapEmbed && CONFIG.mapaCoordenadas) {
     const [mapLat, mapLng] = CONFIG.mapaCoordenadas.split(',').map(Number);
-    const mapD = 0.004;
-    const mapBbox = [mapLng - mapD, mapLat - 0.003, mapLng + mapD, mapLat + 0.003].join(',');
-    mapEmbed.src = 'https://www.openstreetmap.org/export/embed.html?bbox=' + encodeURIComponent(mapBbox) + '&layer=mapnik&marker=' + encodeURIComponent(mapLat + ',' + mapLng);
+    mapEmbed.src = 'https://maps.google.com/maps?q=' + encodeURIComponent(mapLat + ',' + mapLng) + '&z=16&output=embed';
   }
 })();
 
